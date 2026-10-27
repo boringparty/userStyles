@@ -1,0 +1,230 @@
+/* ==UserStyle==
+@name          sunny.garden
+@namespace     github.com/openstyles/stylus
+@version       1.8.0
+@description   Better Theme for Mastodon
+@author        Me
+==/UserStyle== */
+
+
+/* =====================================================
+   DOMAIN-SPECIFIC TINTS
+
+   38  = beige
+   100 = sage green
+   180 = teal
+   210 = blue
+   300 = mauve
+   350 = rose
+   ===================================================== */
+
+@-moz-document domain("sunny.garden") {
+  :root {
+    --tint-hue: 200;
+  }
+}
+
+@-moz-document domain("beige.party") {
+  :root {
+    --tint-hue: 100;
+  }
+}
+
+
+/* =====================================================
+   SHARED THEME
+   ===================================================== */
+
+@-moz-document domain("sunny.garden"), domain("beige.party") {
+
+  :root {
+    --tint-saturation: 35%;
+
+    /* Core */
+    --color-accent-base: hsl(var(--tint-hue) var(--tint-saturation) 51%);
+    --color-bg: hsl(var(--tint-hue) 45% 96%);
+
+    /* Backgrounds */
+    --color-bg-primary: hsl(var(--tint-hue) 45% 96%);
+    --color-bg-secondary: hsl(var(--tint-hue) 40% 91%);
+    --color-bg-tertiary: hsl(var(--tint-hue) 42% 94%);
+
+    /* Brand */
+    --color-brand: hsl(var(--tint-hue) var(--tint-saturation) 51%);
+    --color-brand-dark: hsl(var(--tint-hue) var(--tint-saturation) 37%);
+    --color-brand-soft: hsl(var(--tint-hue) 40% 88%);
+    --color-brand-softest: hsl(var(--tint-hue) 45% 93%);
+
+    /* Borders */
+    --color-border: hsl(var(--tint-hue) 30% 78%);
+    --color-border-brand: hsl(var(--tint-hue) 32% 72%);
+    --color-border-brand-soft: hsl(var(--tint-hue) 35% 83%);
+
+    /* Text */
+    --color-text: #382f25;
+    --color-text-secondary: #6c6051;
+    --color-text-tertiary: #918473;
+    --color-text-disabled: #b8ad9e;
+
+    /* Secondary accent */
+    --color-sun: hsl(42 52% 52%);
+
+    /* Effects */
+    --color-texture: hsl(var(--tint-hue) 35% 40% / 3.5%);
+    --color-hover: rgba(255, 255, 255, 0.45);
+
+    /* Mastodon semantic variables */
+    --color-bg-brand-base: var(--color-brand);
+    --color-bg-brand-base-hover: var(--color-brand-dark);
+    --color-bg-brand-soft: var(--color-brand-soft);
+    --color-bg-brand-softest: var(--color-brand-softest);
+
+    --color-border-primary: var(--color-border);
+
+    --color-text-brand: var(--color-brand-dark);
+    --color-text-brand-on-inverted: var(--color-bg);
+
+    --color-border-success-soft: var(--color-border-brand);
+    --color-bg-disabled: hsl(var(--tint-hue) 35% 88%);
+  }
+
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+
+  body,
+  input,
+  button,
+  textarea,
+  select {
+    font-family: "IBM Plex Mono", monospace !important;
+  }
+
+
+  /* =====================================================
+     BACKGROUND
+     ===================================================== */
+
+  body {
+    background:
+      radial-gradient(
+        circle at 15% 20%,
+        var(--color-texture) 0 1px,
+        transparent 1px
+      ),
+      var(--color-bg) !important;
+
+    background-size: 24px 24px;
+  }
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  .column-link:hover,
+  .icon-button:hover {
+    color: var(--color-brand) !important;
+  }
+
+  .column-link.active {
+    background: transparent !important;
+    color: var(--color-brand-dark) !important;
+    box-shadow: inset 3px 0 var(--color-brand);
+  }
+
+
+  /* =====================================================
+     FIXED DRAWER
+     ===================================================== */
+
+  .drawer:nth-of-type(1) {
+    width: 380px !important;
+    min-width: 380px !important;
+    max-width: 380px !important;
+    flex: 0 0 380px !important;
+  }
+
+
+  /* =====================================================
+     CONTENT COLUMNS
+     ===================================================== */
+
+  .column {
+    width: 600px !important;
+    min-width: 400px !important;
+    max-width: 600px !important;
+    flex: 1 1 600px !important;
+  }
+
+
+  /* =====================================================
+     SCALE CONTENT UI
+     ===================================================== */
+
+  .columns-area {
+    zoom: 0.85;
+  }
+
+
+  /* =====================================================
+     COMPOSER
+     ===================================================== */
+
+  .compose-form__actions .button {
+    font-size: 0 !important;
+  }
+
+  .compose-form__actions .button::before {
+    content: "Post It";
+    font-size: 14px;
+  }
+
+  .autosuggest-textarea,
+  .compose-form__dropdowns {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted var(--color-border);
+  }
+
+  .compose-form__highlightable {
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.16);
+  }
+
+
+  /* =====================================================
+     TABS & COMPONENTS
+     ===================================================== */
+
+  .tabs-bar__link.active {
+    color: var(--color-brand) !important;
+    border-bottom-color: var(--color-brand) !important;
+  }
+
+  .star-icon.active {
+    color: var(--color-sun) !important;
+  }
+
+  .status__content a {
+    color: var(--color-brand) !important;
+  }
+
+  .status__content a:hover {
+    color: var(--color-sun) !important;
+  }
+
+  .status:hover {
+    background: var(--color-hover) !important;
+  }
+
+  .with-zig-zag-decoration {
+    display: none;
+  }
+
+  .hover-card-controller,
+  .story__details__title {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+}
