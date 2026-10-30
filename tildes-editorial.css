@@ -867,6 +867,7 @@
       background: transparent !important;
       box-shadow: none !important;
       font-size: .78rem !important;
+      text-align: center;
     }
   }
 
@@ -1481,9 +1482,110 @@
 
   .topic-listing article.topic {padding-right: 0px!important;}
 
-      
-  /* Changes */
+  /* ------------------------------------------------------------------
+     Sidebar refinements
+     ------------------------------------------------------------------ */
 
-    .link-user[href="/user/tomf"] {background: #ffbebe !important;}
-      
+  /* Keep all sidebar copy fully opaque and dark, including nested navigation. */
+  #sidebar,
+  #sidebar p,
+  #sidebar li,
+  #sidebar li > a,
+  #sidebar .nav,
+  #sidebar .nav-item,
+  #sidebar .nav-item > a,
+  #sidebar summary,
+  #sidebar details,
+  #sidebar .logged-in-user-info,
+  #sidebar .logged-in-user-username,
+  #sidebar .subscription-toggle,
+  #sidebar .form-search,
+  #sidebar .form-search button {
+    color: #282a36 !important;
+    opacity: 1 !important;
+  }
+
+  #sidebar a,
+  #sidebar a:visited {
+    opacity: 1 !important;
+  }
+
+  #sidebar a:hover {
+    color: #17475b !important;
+  }
+
+  /* Preserve the individual group-colour backgrounds and keep text legible. */
+  #sidebar .nav-group-list a.link-group {
+    color: #282a36 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+  }
+
+  /* Subscriptions: variable-width items that wrap naturally across the sidebar. */
+  #sidebar ul.nav.nav-group-list {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  #sidebar ul.nav.nav-group-list > li.nav-item {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+  }
+
+  #sidebar ul.nav.nav-group-list > li.nav-item > a.link-group {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    padding: 3px 6px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Rainbow group colours, scoped only to sidebar subscriptions. */
+  #sidebar .nav-group-list a.link-group[href^="/~a"] { background-color: #bd93f955 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~b"] { background-color: #8be9fd66 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~c"] { background-color: #50fa7b4d !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~d"] { background-color: #ffb86c55 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~e"] { background-color: #ff79c650 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~f"] { background-color: #f1fa8c88 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~g"] { background-color: #08a6c84d !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~h"] { background-color: #ff555548 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~i"] { background-color: #bd93f94a !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~j"] { background-color: #8be9fd66 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~k"] { background-color: #50fa7b48 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~l"] { background-color: #ffb86c4f !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~m"] { background-color: #ff79c648 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~n"] { background-color: #f1fa8c88 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~o"] { background-color: #08a6c84f !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~p"] { background-color: #ff555544 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~q"] { background-color: #bd93f94a !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~r"] { background-color: #8be9fd66 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~s"] { background-color: #50fa7b48 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~t"] { background-color: #ffb86c4f !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~u"] { background-color: #ff79c648 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~v"] { background-color: #f1fa8c88 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~w"] { background-color: #08a6c84f !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~x"] { background-color: #ff555544 !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~y"] { background-color: #bd93f94a !important; }
+  #sidebar .nav-group-list a.link-group[href^="/~z"] { background-color: #8be9fd66 !important; }
+
+  /* Keep the section heading and its collapse control fully legible. */
+  #sidebar .subscription-toggle,
+  #sidebar ul.nav > li {
+    color: #282a36 !important;
+  }
+
 }
