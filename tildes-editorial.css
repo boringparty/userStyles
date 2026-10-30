@@ -3,7 +3,7 @@
 @namespace      github.com/openstyles/stylus
 @version        1.15.0
 @description    A sharper light editorial theme with compact action glyphs and minimal plus-only vote controls.
-@author         OpenAI
+@author         Mostly AI! 
 @preprocessor   stylus
 
 @var text       fontSize            "Base font size"                    15px
@@ -321,7 +321,6 @@
     box-shadow: none;
     transition: background .12s ease, border-color .12s ease;
   }
-  .topic-listing > li:nth-child(even) article.topic { background: #fbfaf5; }
   article.topic:hover, article.topic:focus-within {
     background: #f0f3ed;
     border-left-color: var(--accent);
@@ -588,316 +587,11 @@
     article.topic:has(.topic-title a[href*="donald" i]) { display: none !important; }
   }
 
-  /* Small-screen layout and motion preferences */
-  @media (max-width: 760px) {
-    body > main { min-width: 0 !important; padding: .8rem .7rem 2rem; }
-    #site-header { position: sticky; flex-wrap: wrap; gap: .5rem; padding: .45rem .7rem; }
-    .listing-options { gap: .35rem .6rem; }
-    ol.topic-listing { column-width: auto !important; column-count: 1 !important; column-rule: 0; }
-    article.topic-full { padding: .8rem; }
-    .comment-tree-replies { margin-left: .35rem; padding-left: .4rem; }
-    .comment-text { margin-left: .25rem; }
-    if commentColumns {
-      .topic-comments .comment-text {
-        column-count: 1;
-        column-rule: 0;
-      }
-    }
-  }
-  @media (max-width: 560px) {
-    :root { --header-height: auto; }
-    body > main { padding: .6rem .45rem 1.5rem; }
-    .listing-options { align-items: flex-start; }
-    .tab.tab-listing-order { gap: 0; }
-    .tab .tab-item a { padding: .3rem .38rem; }
-    article.topic { padding-right: .45rem; padding-left: .55rem; }
-    .topic-title, h1.topic-title { font-size: .98rem; margin-right: 1.9rem; }
-    .topic-metadata, .topic-info { gap: .2rem .4rem; font-size: .7rem; }
-    article.topic > .topic-voting { right: .35rem; top: .42rem; }
-    .topic-full-text, .topic-full-text p, .comment-text p { font-size: .93rem; }
-  }
-  /* Final layout refinements: genuine newspaper columns and a quieter light theme. */
-  body > main {
-    width: auto;
-    max-width: none;
-    min-width: 0;
-  }
-  @media (min-width: 761px) {
-    if fullWidth {
-      body > main { min-width: calc(100vw - var(--sidebar-width) - 2.5rem); }
-    }
-    if columns {
-      ol.topic-listing {
-        display: block !important;
-        column-count: auto !important;
-        column-width: columnWidth !important;
-        column-gap: 1.5rem !important;
-        column-rule: 0 !important;
-      }
-      ol.topic-listing > li {
-        display: inline-block !important;
-        width: 100% !important;
-        break-inside: avoid-column !important;
-        -webkit-column-break-inside: avoid !important;
-      }
-    }
-  }
-  @media (max-width: 760px) {
-    ol.topic-listing { column-count: 1 !important; column-width: auto !important; }
-  }
 
-  /* Topic rows stay flat: no card borders, pills, or boxed action links. */
-  article.topic {
-    border: 0 !important;
-    border-bottom: 1px solid #e6e7e1 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    padding: .85rem .25rem .8rem !important;
-  }
-  article.topic:hover, article.topic:focus-within {
-    border-bottom-color: #c8d0c5 !important;
-    border-left-color: transparent !important;
-    background: #f7f8f4 !important;
-  }
-  .topic-listing > li:nth-child(even) article.topic { background: transparent !important; }
-  .topic-title, h1.topic-title { font-size: 1.1rem; line-height: 1.35; }
-  .topic-metadata, .topic-info { font-size: .8rem; }
-  .topic-info-comments a, .topic-info a, .topic-full .btn-post-action,
-  .comment-itself .btn-post-action, .comment-nav-link, .comment-branch-counter,
-  .btn-comment-label, .btn.btn-link {
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-  .topic-full .btn-post-action, .comment-itself .btn-post-action {
-    padding: .1rem .2rem !important;
-    color: var(--accent) !important;
-    font-size: .82rem;
-  }
-  .topic-info-comments a { padding: 0 !important; color: var(--accent) !important; }
-  .topic-content-type, .topic-content-metadata, .topic-info-source-scheduled {
-    border: 0 !important;
-    background: transparent !important;
-    padding: 0 !important;
-    font-size: .76rem;
-  }
-  .topic-comments-header {
-    border: 0 !important;
-    border-bottom: 1px solid var(--line) !important;
-    background: transparent !important;
-    padding: .5rem 0 !important;
-  }
-  .comment-itself {
-    border: 0 !important;
-    border-bottom: 1px solid #e8e9e3 !important;
-    border-radius: 0 !important;
-    padding: .8rem .2rem !important;
-    background: transparent !important;
-  }
-  .comment-itself:hover { background: #f8f9f6 !important; }
-  .comment-header { border-bottom: 0 !important; padding-bottom: .2rem !important; }
-  .comment-branch-counter { padding: 0 .15rem !important; }
-  .btn-comment-collapse { border: 0 !important; background: transparent !important; }
-  .tab .tab-item a, .tab .tab-item button, .tab .tab-item.active a, .tab .tab-item.active button {
-    border: 0 !important;
-    border-radius: 0 !important;
-  }
-  .tab .tab-item.active a, .tab .tab-item.active button {
-    background: transparent !important;
-    box-shadow: inset 0 -2px 0 var(--accent);
-  }
-  #site-header { background: #fff !important; border-bottom-color: #e6e7e1 !important; box-shadow: none !important; }
-  #sidebar { border-left-color: #e6e7e1 !important; }
+  /* ==========================================================
+     REFINED VISUAL SYSTEM
+     ========================================================== */
 
-  /* Final direction: pale blue-white canvas, charcoal text, and real three-column listings. */
-  :root {
-    --paper: #f3fbfd;
-    --paper-deep: #e8f3f6;
-    --surface: #faffff;
-    --surface-muted: #eaf4f7;
-    --ink: #282a36;
-    --ink-soft: #383b4b;
-    --muted: #656b7a;
-    --faint: #858b99;
-    --line: #d5e4e9;
-    --line-strong: #b5cbd3;
-    --accent: #245b70;
-    --accent-hover: #17475b;
-    --accent-soft: #e2f1f5;
-    --visited: #66517b;
-  }
-  html, body, body > main { background: #f3fbfd !important; color: #282a36; }
-  #site-header { background: #f3fbfd !important; border-bottom: 1px solid #d5e4e9 !important; }
-  #site-header .site-header-sidebar-button { display: none !important; }
-  article.topic:hover, article.topic:focus-within { background: #eaf4f7 !important; }
-
-  /* Topic and comment actions should look like links, not little buttons. */
-  .topic-info a, .topic-info-comments a, .topic-actions a,
-  .topic-full .btn-post-action, .comment-itself .btn-post-action,
-  .comment-nav-link, .btn-comment-label, .btn.btn-link,
-  .topic-actions .btn, .topic-actions .dropdown-toggle {
-    border: 0 !important;
-    outline-offset: 2px;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-  }
-
-  /* Keep three columns on desktop; step down only when the viewport is too narrow. */
-  @media (min-width: 1200px) {
-    ol.topic-listing {
-      display: block !important;
-      column-count: 3 !important;
-      column-width: auto !important;
-      column-gap: 1.35rem !important;
-      column-rule: 1px solid #d5e4e9 !important;
-      padding-left: 0 !important;
-    }
-    ol.topic-listing > li {
-      display: inline-block !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-      break-inside: avoid-column !important;
-      -webkit-column-break-inside: avoid !important;
-      margin: 0 0 .65rem !important;
-      padding: 0 !important;
-    }
-  }
-  @media (min-width: 761px) and (max-width: 1199px) {
-    ol.topic-listing {
-      display: block !important;
-      column-count: 2 !important;
-      column-width: auto !important;
-      column-gap: 1.1rem !important;
-      column-rule: 1px solid #d5e4e9 !important;
-      padding-left: 0 !important;
-    }
-    ol.topic-listing > li {
-      display: inline-block !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-      break-inside: avoid-column !important;
-      -webkit-column-break-inside: avoid !important;
-      margin: 0 0 .6rem !important;
-      padding: 0 !important;
-    }
-  }
-  @media (max-width: 760px) {
-    #site-header .site-header-sidebar-button { display: inline-block !important; }
-    ol.topic-listing { column-count: 1 !important; column-width: auto !important; column-rule: 0 !important; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
-  }
-
-
-  /* Listing navigation belongs visually in the desktop header, not above the feed. */
-  @media (min-width: 1200px) {
-    .listing-options {
-      position: fixed !important;
-      top: 0 !important;
-      left: 145px !important;
-      right: 225px !important;
-      z-index: 1001 !important;
-      box-sizing: border-box !important;
-      height: 48px !important;
-      min-height: 48px !important;
-      margin: 0 !important;
-      padding: 0 .5rem !important;
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      gap: .55rem !important;
-      overflow: visible !important;
-      border: 0 !important;
-      background: transparent !important;
-      font-size: .82rem !important;
-      white-space: nowrap !important;
-    }
-    #site-header .site-header-logo,
-    #site-header .logged-in-user-info {
-      position: relative;
-      z-index: 1002;
-    }
-    .tab.tab-listing-order {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      align-items: center !important;
-      gap: .12rem !important;
-      min-width: 0 !important;
-    }
-    .tab .tab-item a,
-    .tab .tab-item button,
-    .tab .tab-item.active a,
-    .tab .tab-item.active button {
-      padding: .35rem .48rem !important;
-      border: 0 !important;
-      border-radius: 0 !important;
-      background: transparent !important;
-      box-shadow: none !important;
-      color: var(--ink-soft) !important;
-    }
-    .tab .tab-item.active a,
-    .tab .tab-item.active button {
-      color: var(--ink) !important;
-      box-shadow: inset 0 -2px 0 var(--accent) !important;
-      font-weight: 650 !important;
-    }
-    .tab .tab-item a:hover,
-    .tab .tab-item button:hover { color: var(--accent) !important; background: transparent !important; }
-    .form-listing-options,
-    .form-listing-options .form-group {
-      display: flex !important;
-      flex: 0 0 auto !important;
-      align-items: center !important;
-      gap: .35rem !important;
-    }
-    .form-listing-options label[for="period"] { margin: 0 !important; }
-    .form-listing-options select#period {
-      max-width: 9.5rem !important;
-      min-height: 1.7rem !important;
-      height: 1.7rem !important;
-      padding: .1rem 1.4rem .1rem .35rem !important;
-      border: 0 !important;
-      border-radius: 0 !important;
-      border-bottom: 1px solid var(--line-strong) !important;
-      background: transparent !important;
-      box-shadow: none !important;
-      font-size: .78rem !important;
-      text-align: center;
-    }
-  }
-
-  /* Keep the controls in normal flow on smaller screens where the header is crowded. */
-  @media (min-width: 761px) and (max-width: 1199px) {
-    .listing-options {
-      position: static !important;
-      display: flex !important;
-      flex-wrap: wrap !important;
-      height: auto !important;
-      margin: .1rem 0 1rem !important;
-      padding: 0 0 .55rem !important;
-      border-bottom: 1px solid var(--line) !important;
-      white-space: normal !important;
-    }
-  }
-
-  /* A deliberate, fixed three-column newspaper grid on wide desktop screens. */
-  @media (min-width: 1200px) {
-    ol.topic-listing {
-      column-count: 3 !important;
-      column-width: auto !important;
-      column-gap: 1.4rem !important;
-      column-rule: 1px solid #d5e4e9 !important;
-      column-fill: balance !important;
-    }
-  }
-
-
-  /* v1.4 refinements: clearer wordmark, more legible type, quieter surfaces */
   :root {
     --paper: #f3fbfd;
     --paper-deep: #e8f4f7;
@@ -910,11 +604,18 @@
     --line: #d5e5e9;
     --line-strong: #b7cdd4;
     --accent: #245b70;
+    --accent-hover: #17475b;
+    --accent-soft: #e2f1f5;
+    --visited: #66517b;
+    --font-editorial: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
   }
 
-  html, body, body > main, #sidebar {
-    background-color: #f3fbfd !important;
-    color: #282a36;
+  html,
+  body,
+  body > main,
+  #sidebar {
+    background-color: var(--paper) !important;
+    color: var(--ink);
   }
 
   body {
@@ -922,53 +623,45 @@
     line-height: 1.52 !important;
   }
 
-  /* The added favicon was overlapping the wordmark in the screenshot.
-     Keep the actual Tildes wordmark, without a second icon over it. */
-  #site-header .site-header-logo {
-    display: inline-flex !important;
-    position: relative !important;
-    z-index: 1003 !important;
-    flex: 0 0 auto !important;
-    min-width: max-content !important;
-    padding: .15rem .35rem .15rem 0 !important;
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    color: #282a36 !important;
-    font-size: 1.12rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -.04em !important;
-    line-height: 1.2 !important;
-    text-transform: none !important;
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--font-ui) !important;
+    font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
-  #site-header .site-header-logo::before {
-    content: none !important;
-    display: none !important;
-    background: none !important;
-  }
-  #site-header .site-header-context { display: none !important; }
 
-  /* Bigger, calmer topic typography. */
-  article.topic {
-    background: transparent !important;
-    padding: .8rem .45rem .8rem .2rem !important;
-    border: 0 !important;
-    border-bottom: 1px solid #d5e5e9 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+  h1, h2, h3, h4, h5, h6,
+  #site-header .site-header-logo {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -.035em;
   }
-  .topic-listing > li:nth-child(even) article.topic {
-    background: transparent !important;
+
+  article.topic .topic-title,
+  article.topic h1.topic-title,
+  .topic-full h1,
+  .topic-full-text h1,
+  .topic-full-text h2,
+  .comment-tree .comment h1,
+  .comment-tree .comment h2,
+  .comment-text h1,
+  .comment-text h2,
+  .comment-text h3 {
+    font-family: var(--font-editorial) !important;
+    font-weight: 600 !important;
+    letter-spacing: -.012em !important;
+    line-height: 1.28 !important;
+    font-synthesis: weight;
   }
-  .topic-title,
-  h1.topic-title,
-  article.topic .topic-title {
-    font-size: 1.08rem !important;
-    line-height: 1.35 !important;
-    font-weight: 650 !important;
-    letter-spacing: -.015em !important;
-    color: #282a36 !important;
+
+  article.topic .topic-title,
+  article.topic h1.topic-title {
+    font-size: 1.14rem !important;
+    color: var(--ink) !important;
   }
+
   .topic-info,
   .topic-metadata,
   .topic-info *,
@@ -979,232 +672,255 @@
   .topic-actions *,
   .topic .btn,
   .topic .dropdown {
-    font-size: .86rem !important;
+    font-family: var(--font-ui) !important;
+    font-size: .9rem !important;
+    letter-spacing: 0 !important;
     line-height: 1.45 !important;
   }
+
   .topic-info-comments,
   .topic-info-comments a,
   .topic-info-comments-new {
     font-size: .9rem !important;
   }
-  article.topic:hover,
-  article.topic:focus-within {
+
+  /* ==========================================================
+     PAGE WIDTH, HEADER AND LISTING NAVIGATION
+     ========================================================== */
+
+  body > main {
+    box-sizing: border-box !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 1.1rem 36px 3rem 1.25rem !important;
     background: transparent !important;
-    border-left-color: transparent !important;
-    box-shadow: none !important;
   }
 
-  /* Keep controls understated and readable in the header. */
   #site-header {
-    background: #f3fbfd !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
     min-height: 52px !important;
-    padding-top: .45rem !important;
-    padding-bottom: .45rem !important;
+    padding: .45rem 1.1rem !important;
+    background: var(--paper) !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(12px);
   }
+
+  #site-header .site-header-logo {
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1003 !important;
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    padding: .15rem .35rem .15rem 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--ink) !important;
+    font-size: 1.12rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -.04em !important;
+    line-height: 1.2 !important;
+    text-transform: none !important;
+  }
+
+  #site-header .site-header-logo::before,
+  #site-header .site-header-context {
+    display: none !important;
+    content: none !important;
+  }
+
+  #site-header .logged-in-user-info {
+    display: flex;
+    position: relative;
+    z-index: 1002;
+    align-items: center;
+    gap: .5rem;
+    margin-left: auto;
+    margin-right: 36px !important;
+    font-size: .9rem !important;
+  }
+
+  #site-header .logged-in-user-username {
+    color: var(--ink) !important;
+    border-bottom: 1px solid var(--line-strong);
+    padding: .15rem .1rem;
+  }
+
+  #site-header .site-header-sidebar-button {
+    display: none !important;
+  }
+
+  /* Listing controls sit in the header on wide desktop screens. */
   @media (min-width: 1200px) {
     .listing-options {
-      left: 155px !important;
-      right: 170px !important;
-      height: 52px !important;
-      min-height: 52px !important;
-      font-size: .9rem !important;
-      gap: .7rem !important;
-    }
-    .tab .tab-item a,
-    .tab .tab-item button {
-      font-size: .88rem !important;
-      padding: .45rem .55rem !important;
-    }
-    .form-listing-options label,
-    .form-listing-options select#period {
-      font-size: .88rem !important;
-    }
-    #site-header .logged-in-user-info { font-size: .9rem !important; }
-    ol.topic-listing {
-      column-count: 3 !important;
-      column-width: auto !important;
-      column-gap: 1.35rem !important;
-      column-rule: 1px solid #d5e5e9 !important;
-    }
-  }
-  @media (min-width: 761px) and (max-width: 1199px) {
-    ol.topic-listing {
-      column-count: 2 !important;
-      column-width: auto !important;
-      column-gap: 1.2rem !important;
-    }
-  }
-  @media (max-width: 760px) {
-    body { font-size: 15px !important; }
-    ol.topic-listing { column-count: 1 !important; }
-  }
-
-  /* v1.5: stronger typography and a quiet, header-level unfiltered link. */
-  :root {
-    --font-ui: Inter, "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
-    --font-heading: "Avenir Next", Avenir, Inter, "Segoe UI", sans-serif;
-    --font-editorial: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
-  }
-  body, button, input, select, textarea {
-    font-family: var(--font-ui) !important;
-    font-kerning: normal;
-    font-feature-settings: "kern" 1, "liga" 1;
-  }
-  #site-header .site-header-logo,
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading) !important;
-    letter-spacing: -.035em;
-  }
-  article.topic .topic-title,
-  article.topic h1.topic-title,
-  .topic-full h1,
-  .comment-tree .comment h1,
-  .comment-tree .comment h2 {
-    font-family: var(--font-editorial) !important;
-    font-weight: 600 !important;
-    letter-spacing: -.012em !important;
-    line-height: 1.28 !important;
-  }
-  article.topic .topic-title,
-  h1.topic-title {
-    font-size: 1.14rem !important;
-  }
-  .topic-info, .topic-metadata, .topic-info *, .topic-metadata *,
-  .topic-voting, .topic-voting *, .topic-actions, .topic-actions *,
-  .topic .btn, .topic .dropdown {
-    font-family: var(--font-ui) !important;
-    font-size: .9rem !important;
-    letter-spacing: 0 !important;
-  }
-  .topic-listing-filter {
-    border: 0 !important;
-    border-left: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    color: transparent !important;
-  }
-  @media (min-width: 1200px) {
-    /* Keep the banner's link in the header; hide only its explanatory text. */
-    .topic-listing-filter {
       position: fixed !important;
       top: 0 !important;
-      right: 115px !important;
-      z-index: 1004 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: flex-end !important;
+      left: 155px !important;
+      right: 260px !important;
+      z-index: 1001 !important;
       box-sizing: border-box !important;
       height: 52px !important;
-      max-width: 180px !important;
+      min-height: 52px !important;
       margin: 0 !important;
-      padding: 0 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      font-size: 0 !important;
-    }
-    .topic-listing-filter a {
-      display: inline-block !important;
-      max-width: 180px !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      font-size: .84rem !important;
-      font-weight: 600 !important;
-      color: var(--accent) !important;
-    }
-    .topic-listing-filter a:hover { text-decoration: underline !important; }
-    .listing-options { right: 300px !important; }
-  }
-  @media (min-width: 761px) and (max-width: 1199px) {
-    .topic-listing-filter {
-      background: transparent !important;
+      padding: 0 .5rem !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: .7rem !important;
+      overflow: visible !important;
       border: 0 !important;
-      padding: .25rem 0 !important;
+      background: transparent !important;
+      font-size: .9rem !important;
+      white-space: nowrap !important;
+    }
+
+    .tab.tab-listing-order {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: .12rem !important;
+      min-width: 0 !important;
+    }
+
+    .tab .tab-item a,
+    .tab .tab-item button,
+    .tab .tab-item.active a,
+    .tab .tab-item.active button {
+      padding: .45rem .55rem !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      color: var(--ink-soft) !important;
+      font-size: .88rem !important;
+    }
+
+    .tab .tab-item.active a,
+    .tab .tab-item.active button {
+      color: var(--ink) !important;
+      box-shadow: inset 0 -2px 0 var(--accent) !important;
+      font-weight: 650 !important;
+    }
+
+    .tab .tab-item a:hover,
+    .tab .tab-item button:hover {
+      color: var(--accent) !important;
+      background: transparent !important;
+    }
+
+    .form-listing-options,
+    .form-listing-options .form-group {
+      display: flex !important;
+      flex: 0 0 auto !important;
+      align-items: center !important;
+      gap: .35rem !important;
+    }
+
+    .form-listing-options label[for="period"] {
+      margin: 0 !important;
+    }
+
+    .form-listing-options select#period {
+      max-width: 9.5rem !important;
+      min-height: 1.7rem !important;
+      height: 1.7rem !important;
+      padding: .1rem 1.4rem .1rem .35rem !important;
+      border: 0 !important;
+      border-bottom: 1px solid var(--line-strong) !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      font-size: .88rem !important;
+      text-align: center;
+    }
+
+    .topic-listing-filter {
+      display: none !important;
     }
   }
 
-  /* v1.7 — less soft, more confident: sharper contrast and quieter colour. */
-  :root {
-    --paper: #f3fbfd;
-    --paper-deep: #e4eef2;
-    --surface: #f8fcfd;
-    --surface-muted: #eaf2f5;
-    --ink: #202633;
-    --ink-soft: #303947;
-    --muted: #586675;
-    --faint: #707e8b;
-    --line: #cbd9df;
-    --line-strong: #9eafb9;
-    --accent: #17465b;
-    --accent-hover: #0e3447;
-    --accent-soft: #e4eef2;
-    --accent-warm: #7d4338;
-    --visited: #4d5369;
-    --radius: 2px;
+  /* ==========================================================
+     RESPONSIVE NEWSPAPER TOPIC LISTING
+     ========================================================== */
+
+  ol.topic-listing {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: .25rem 0 1.5rem !important;
+    padding: 0 !important;
+    list-style: none !important;
+    column-count: auto !important;
+    column-width: 300px !important;
+    column-gap: 1.4rem !important;
+    column-rule: 1px solid var(--line) !important;
+    box-sizing: border-box !important;
   }
 
-  /* Keep Iowan Old Style distinctive, but give headlines more authority. */
-  .topic-title, h1.topic-title,
-  article.topic .topic-title,
-  .topic-full-text h1, .topic-full-text h2,
-  .comment-text h1, .comment-text h2, .comment-text h3 {
-    font-family: "Iowan Old Style", "Palatino Linotype", Charter, Georgia, serif !important;
-    font-weight: 650 !important;
-    letter-spacing: -.025em !important;
-    color: #202633;
-    font-synthesis: weight;
+  ol.topic-listing > li {
+    display: inline-block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 0 .65rem !important;
+    padding: 0 !important;
+    break-inside: avoid-column !important;
+    -webkit-column-break-inside: avoid !important;
+    list-style: none !important;
   }
 
-  /* Lose the soft alternating panels; use one consistent surface and crisp rules. */
-  .topic-listing > li:nth-child(even) article.topic,
-  article.topic { background: var(--paper) !important; }
   article.topic {
-    border-bottom: 1px solid #c5d4dc !important;
-    border-left: 2px solid transparent !important;
-  }
-  article.topic:hover, article.topic:focus-within {
-    background: #eaf3f6 !important;
-    border-left-color: var(--accent) !important;
-  }
-  ol.topic-listing { column-rule: 1px solid #cbd9df !important; }
-
-  /* More restrained, less candy-coloured tags. */
-  .link-group, a.link-group,
-  .label-topic-tag, .topic .label-topic-tag,
-  .topic-metadata .label, .topic-info .label {
-    border-radius: 2px !important;
-    border: 1px solid #c6d4dc !important;
-    background: #e8f0f3 !important;
-    color: #263d4b !important;
-    box-shadow: none !important;
-    font-weight: 600 !important;
-  }
-  .topic .label-topic-tag-spoiler,
-  .label-topic-tag-spoiler { background: #e9e7e2 !important; color: #48443e !important; }
-
-  /* Navigation should feel crisp, not pill-shaped. */
-  .tab .tab-item a, .tab .tab-item button, .btn.btn-link {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: .8rem .45rem .8rem .2rem !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
     border-radius: 0 !important;
-  }
-  .tab .tab-item.active a, .tab .tab-item.active button {
     background: transparent !important;
-    border-color: transparent transparent var(--accent) !important;
-    border-bottom-width: 2px !important;
-    color: var(--ink) !important;
+    box-shadow: none !important;
+    transition: background-color .12s ease, border-color .12s ease !important;
   }
-  .topic-info-comments a, .topic-listing-filter a { color: var(--accent) !important; }
-  .topic-info-comments { font-weight: 700 !important; }
-  #site-header { background: #f3fbfd !important; border-bottom-color: #c5d4dc !important; }
-  .topic-voting, .btn, .btn-post-action { border-radius: 2px !important; }
+  article.topic:hover,
+  article.topic:focus-within,
+  .topic-listing > li:hover article.topic {
+    background: #d5e8ee !important;
+    border-bottom-color: #b7cdd4 !important;
+    border-left-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
 
+  .topic-title,
+  h1.topic-title {
+    font-size: 1.14rem !important;
+    line-height: 1.28 !important;
+    font-weight: 600 !important;
+    letter-spacing: -.012em !important;
+  }
 
-  /* Hide the topic-filter notice and its unfiltered-list link. */
-  .topic-listing-filter { display: none !important; }
+  .topic-info,
+  .topic-metadata {
+    font-size: .9rem !important;
+  }
+  
+  
+  .topic-listing > li:nth-of-type(2n) {
+     color: var(--foreground-mixed-color);
+    background-color: var(--background-color);
+}
 
-      
-      
-      
-  /* Replace the wordy Actions label with a compact, consistent menu glyph. */
+  /* ==========================================================
+     TOPIC ACTIONS AND PLUS-ONLY VOTING
+     ========================================================== */
+
   .topic-listing article.topic .topic-actions .dropdown-toggle,
   .topic-listing article.topic .topic-actions button.dropdown-toggle,
   .topic-listing article.topic .topic-actions a.dropdown-toggle {
@@ -1219,6 +935,7 @@
     line-height: 1 !important;
     text-decoration: none !important;
   }
+
   .topic-listing article.topic .topic-actions .dropdown-toggle::before {
     content: "⊙" !important;
     display: block !important;
@@ -1227,144 +944,11 @@
     font-weight: 400 !important;
     line-height: 1 !important;
   }
-  .topic-listing article.topic .topic-actions .dropdown-toggle::after { display: none !important; }
 
-
-
-
-
-  /* Minimal topic vote control: a single plus, light when unused and dark when voted. */
-  article.topic > button.topic-voting {
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    min-width: 2rem;
-    height: 2rem;
-    min-height: 2rem;
-    padding: 0 !important;
-    font-size: 0 !important;
-    line-height: 1;
-    color: var(--accent) !important;
-    background: var(--surface) !important;
-    border: 1px solid var(--line-strong) !important;
-    border-radius: 2px !important;
-  }
-  article.topic > button.topic-voting > * {
+  .topic-listing article.topic .topic-actions .dropdown-toggle::after {
     display: none !important;
   }
-  article.topic > button.topic-voting::before {
-    content: "+";
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1;
-    color: var(--accent);
-  }
-  article.topic > button.topic-voting.btn-used,
-  article.topic > button.topic-voting[aria-pressed="true"] {
-    color: #fff !important;
-    background: var(--accent) !important;
-    border-color: var(--accent) !important;
-  }
-  article.topic > button.topic-voting.btn-used::before,
-  article.topic > button.topic-voting[aria-pressed="true"]::before {
-    color: #fff;
-  }
-  article.topic > button.topic-voting:hover {
-    background: var(--accent-soft) !important;
-    border-color: var(--accent) !important;
-  }
-  article.topic > button.topic-voting.btn-used:hover,
-  article.topic > button.topic-voting[aria-pressed="true"]:hover {
-    background: var(--accent-hover) !important;
-  }
 
-  /* v1.11: use Tildes' native vote-label/vote-count structure, as in the original userstyle.
-     This avoids the duplicated "VoteVote" label on full topic pages. */
-  .topic-voting-label,
-  .topic-voting .topic-voting-label {
-    display: none !important;
-  }
-  .topic-voting .topic-voting-votes {
-    display: inline-block !important;
-    position: relative !important;
-    width: 100% !important;
-    color: transparent !important;
-    font-size: 0 !important;
-    line-height: 1 !important;
-    text-align: center !important;
-  }
-  .topic-voting .topic-voting-votes::before {
-    content: "+" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: var(--accent) !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 1.2rem !important;
-    font-weight: 400 !important;
-    line-height: 1 !important;
-  }
-  .topic-voting.btn-used .topic-voting-votes::before,
-  .topic-voting[aria-pressed="true"] .topic-voting-votes::before {
-    content: "+" !important;
-    color: #fff !important;
-  }
-  .topic-voting.btn-used,
-  .topic-voting[aria-pressed="true"] {
-    color: #fff !important;
-    background: var(--accent) !important;
-    border-color: var(--accent) !important;
-  }
-  .topic-voting:not(.btn-used):not([aria-pressed="true"]) {
-    color: var(--accent) !important;
-    background: var(--surface) !important;
-    border-color: var(--line-strong) !important;
-  }
-  /* The vote control is absolutely positioned; reserve a clear lane for it in every topic card. */
-  .topic-listing article.topic {
-    padding-right: 3.15rem !important;
-  }
-  .topic-listing article.topic .topic-title,
-  .topic-listing article.topic h1.topic-title,
-  .topic-listing article.topic > header,
-  .topic-listing article.topic > header .topic-title {
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-    margin-right: 0 !important;
-    padding-right: 2.35rem !important;
-  }
-  .topic-listing article.topic > .topic-voting {
-    right: .4rem !important;
-    top: .5rem !important;
-    width: 2rem !important;
-    min-width: 2rem !important;
-    height: 2rem !important;
-    min-height: 2rem !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    font-size: 0 !important;
-  }
-  /* Full topic pages use the same compact plus-only control. */
-  article.topic-full .topic-voting {
-    width: 2rem !important;
-    min-width: 2rem !important;
-    height: 2rem !important;
-    min-height: 2rem !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    font-size: 0 !important;
-    border-radius: 2px !important;
-  }
-
-
-  /* v1.12: render the plus on the vote control itself, not inside the count span.
-     This avoids Tildes' full-topic markup displaying both "Vote" and "Vote (40)". */
   .topic-voting,
   article.topic .topic-voting,
   article.topic-full .topic-voting {
@@ -1381,10 +965,14 @@
     max-height: 2rem !important;
     padding: 0 !important;
     overflow: hidden !important;
+    border: 1px solid var(--line-strong) !important;
+    border-radius: 2px !important;
+    background: var(--surface) !important;
+    color: var(--accent) !important;
     font-size: 0 !important;
     line-height: 1 !important;
-    border-radius: 2px !important;
   }
+
   .topic-voting > *,
   .topic-voting .topic-voting-label,
   .topic-voting .topic-voting-votes {
@@ -1392,6 +980,7 @@
     visibility: hidden !important;
     font-size: 0 !important;
   }
+
   .topic-voting::before {
     content: "+" !important;
     position: absolute !important;
@@ -1406,66 +995,95 @@
     font-weight: 400 !important;
     line-height: 1 !important;
   }
+
   .topic-voting.btn-used,
   .topic-voting[aria-pressed="true"] {
-    color: #fff !important;
     background: var(--accent) !important;
     border-color: var(--accent) !important;
-  }
-  .topic-voting.btn-used::before,
-  .topic-voting[aria-pressed="true"]::before {
-    content: "+" !important;
     color: #fff !important;
   }
+
+  .topic-voting.btn-used::before,
+  .topic-voting[aria-pressed="true"]::before {
+    color: #fff !important;
+  }
+
   .topic-voting:not(.btn-used):not([aria-pressed="true"]) {
-    color: var(--accent) !important;
     background: var(--surface) !important;
     border-color: var(--line-strong) !important;
+    color: var(--accent) !important;
   }
-  /* Keep listing headlines clear of the absolutely positioned vote control. */
+
+  .topic-listing article.topic > .topic-voting {
+    position: absolute !important;
+    top: .5rem !important;
+    right: .4rem !important;
+  }
+
+  .topic-listing article.topic {
+    padding-right: 0 !important;
+  }
+
   .topic-listing article.topic > header,
+  .topic-listing article.topic > header .topic-title,
   .topic-listing article.topic .topic-title {
-    padding-right: 0.65rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+    padding-right: 2.35rem !important;
   }
-  /* On a full topic page, reserve the same space in the headline area. */
+
+  article.topic-full .topic-voting {
+    width: 2rem !important;
+    min-width: 2rem !important;
+    max-width: 2rem !important;
+    height: 2rem !important;
+    min-height: 2rem !important;
+    max-height: 2rem !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+  }
+
   article.topic-full > header {
     position: relative !important;
     padding-right: 3rem !important;
   }
+
   article.topic-full h1 {
     max-width: 100% !important;
     overflow-wrap: anywhere;
   }
 
-
-  /* v1.15: only comment-action buttons get text labels. Topic voting is handled
-     separately by .topic-voting and keeps its square plus control. */
+  /* Comment vote actions retain readable text labels. */
   .btn-post-action[data-ic-put-to*="/vote"],
   .btn-post-action[data-ic-delete-from*="/vote"] {
-    font-size: 0 !important;
     min-width: 0 !important;
     min-height: 0 !important;
     width: auto !important;
     height: auto !important;
     padding: .2rem .15rem !important;
     border: 0 !important;
+    border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
-    border-radius: 0 !important;
     color: var(--accent) !important;
+    font-size: 0 !important;
     overflow: visible !important;
   }
+
   .btn-post-action[data-ic-put-to*="/vote"]::before,
   .btn-post-action[data-ic-delete-from*="/vote"]::before {
     content: "Vote" !important;
-    font-size: .8rem !important;
-    font-family: inherit !important;
-    font-weight: 700 !important;
     position: static !important;
     display: inline !important;
-    line-height: inherit !important;
     color: inherit !important;
+    font-family: inherit !important;
+    font-size: .8rem !important;
+    font-weight: 700 !important;
+    line-height: inherit !important;
   }
+
   .btn-post-action.btn-used[data-ic-put-to*="/vote"]::before,
   .btn-post-action.btn-used[data-ic-delete-from*="/vote"]::before,
   .btn-post-action-used[data-ic-put-to*="/vote"]::before,
@@ -1473,20 +1091,70 @@
     content: "Voted" !important;
   }
 
-  /* Give topic titles the requested small gutter beside their own vote button. */
-  .topic-listing article.topic > header,
-  .topic-listing article.topic > header .topic-title,
-  .topic-listing article.topic .topic-title {
-    padding-right: 0.65rem !important;
+  /* ==========================================================
+     HEADER LINKS, LABELS AND ACTION STYLING
+     ========================================================== */
+
+  .tab .tab-item a,
+  .tab .tab-item button,
+  .tab .tab-item.active a,
+  .tab .tab-item.active button,
+  .btn.btn-link {
+    border: 0 !important;
+    border-radius: 0 !important;
   }
 
-  .topic-listing article.topic {padding-right: 0px!important;}
+  .tab .tab-item.active a,
+  .tab .tab-item.active button {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: inset 0 -2px 0 var(--accent) !important;
+    color: var(--ink) !important;
+  }
 
-  /* ------------------------------------------------------------------
-     Sidebar refinements
-     ------------------------------------------------------------------ */
+  .topic-info-comments a,
+  .topic-listing-filter a {
+    color: var(--accent) !important;
+  }
 
-  /* Keep all sidebar copy fully opaque and dark, including nested navigation. */
+  .topic-info-comments {
+    font-weight: 700 !important;
+  }
+
+  .topic-info a,
+  .topic-info-comments a,
+  .topic-actions a,
+  .topic-full .btn-post-action,
+  .comment-itself .btn-post-action,
+  .comment-nav-link,
+  .btn-comment-label,
+  .btn.btn-link,
+  .topic-actions .btn,
+  .topic-actions .dropdown-toggle {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline-offset: 2px;
+  }
+
+  .topic-full .btn-post-action,
+  .comment-itself .btn-post-action {
+    padding: .1rem .2rem !important;
+    color: var(--accent) !important;
+    font-size: .82rem;
+  }
+
+  /* ==========================================================
+     SIDEBAR
+     ========================================================== */
+
+  #sidebar {
+    background: var(--surface) !important;
+    border-left: 1px solid var(--line) !important;
+    box-shadow: none;
+  }
+
   #sidebar,
   #sidebar p,
   #sidebar li,
@@ -1511,18 +1179,53 @@
   }
 
   #sidebar a:hover {
-    color: #17475b !important;
+    color: var(--accent-hover) !important;
   }
 
-  /* Preserve the individual group-colour backgrounds and keep text legible. */
-  #sidebar .nav-group-list a.link-group {
-    color: #282a36 !important;
+  #sidebar .form-search .form-input,
+  #sidebar .input-group {
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+  }
+
+  #sidebar .input-group {
+    padding: 2px;
+  }
+
+  #sidebar h2,
+  #sidebar h3,
+  #sidebar summary {
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-weight: 650;
+  }
+
+  #sidebar h2,
+  #sidebar h3 {
+    margin-top: 1.2rem;
+  }
+
+  #sidebar .nav {
+    line-height: 1.5;
+  }
+
+  #sidebar .nav .nav-item a {
+    display: inline-block;
+    color: var(--ink-soft);
+  }
+
+  #sidebar .nav .nav-item a:hover {
+    color: var(--accent-hover);
+    text-decoration: none;
+  }
+
+  #sidebar .nav .nav .nav-item,
+  #sidebar .nav .nav .nav-item:hover,
+  #sidebar .nav .nav .nav-item:focus-within {
     opacity: 1 !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
   }
 
-  /* Subscriptions: variable-width items that wrap naturally across the sidebar. */
   #sidebar ul.nav.nav-group-list {
     display: flex !important;
     flex-flow: row wrap !important;
@@ -1530,8 +1233,8 @@
     justify-content: flex-start !important;
     gap: 6px !important;
     width: 100% !important;
-    padding: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
     list-style: none !important;
   }
 
@@ -1549,12 +1252,16 @@
     display: inline-block !important;
     width: auto !important;
     max-width: 100% !important;
-    white-space: nowrap !important;
     padding: 3px 6px !important;
+    white-space: nowrap !important;
     line-height: 1.25 !important;
+    color: #282a36 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
   }
 
-  /* Rainbow group colours, scoped only to sidebar subscriptions. */
+  /* Rainbow group colours apply only to sidebar subscription links. */
   #sidebar .nav-group-list a.link-group[href^="/~a"] { background-color: #bd93f955 !important; }
   #sidebar .nav-group-list a.link-group[href^="/~b"] { background-color: #8be9fd66 !important; }
   #sidebar .nav-group-list a.link-group[href^="/~c"] { background-color: #50fa7b4d !important; }
@@ -1582,10 +1289,658 @@
   #sidebar .nav-group-list a.link-group[href^="/~y"] { background-color: #bd93f94a !important; }
   #sidebar .nav-group-list a.link-group[href^="/~z"] { background-color: #8be9fd66 !important; }
 
-  /* Keep the section heading and its collapse control fully legible. */
-  #sidebar .subscription-toggle,
-  #sidebar ul.nav > li {
-    color: #282a36 !important;
+  /* ==========================================================
+     FULL TOPIC PAGES AND COMMENTS
+     ========================================================== */
+
+  article.topic-full {
+    box-sizing: border-box;
+    max-width: min(100%, 1040px);
+    padding: 1rem 1.15rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: none;
   }
+
+  article.topic-full > header {
+    padding-bottom: .85rem;
+    margin-bottom: .9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  article.topic-full h1 {
+    margin: .2rem 0 .5rem;
+    font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+  }
+
+  .topic-full-byline,
+  .topic-full-tags,
+  .topic-full-link,
+  .topic-full-content-metadata {
+    color: var(--muted);
+    font-size: .82rem;
+  }
+
+  .topic-full-link {
+    overflow-wrap: anywhere;
+    padding: .6rem .7rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    background: var(--surface-muted);
+  }
+
+  .topic-full-content-metadata {
+    padding: .5rem .65rem;
+    border: 1px solid var(--line);
+    background: #fbfaf5;
+  }
+
+  .topic-full-text,
+  .topic-full-text p,
+  .comment-text p {
+    font-size: .96rem;
+    line-height: 1.62;
+  }
+
+  .topic-full-text p,
+  .topic-full-text ul,
+  .topic-full-text ol,
+  .comment-text p,
+  .comment-text ul,
+  .comment-text ol,
+  .comment-text blockquote {
+    max-width: var(--reading-width);
+  }
+
+  .topic-comments {
+    margin-top: 1.35rem;
+  }
+
+  .topic-comments-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .65rem;
+    margin-bottom: .75rem;
+    padding: .5rem 0;
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+    background: transparent !important;
+    box-shadow: none;
+  }
+
+  .topic-comments-header h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    letter-spacing: -.02em;
+  }
+
+  .comment-tree,
+  .comment-tree-replies {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .comment-tree-replies {
+    margin-left: .8rem;
+    padding-left: .75rem;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .comment-tree-item {
+    margin: 0 0 .55rem;
+  }
+
+  article.comment {
+    position: relative;
+    border-left: 2px solid transparent;
+  }
+
+  article.comment[data-comment-depth="0"] { border-left-color: #789381; }
+  article.comment[data-comment-depth="1"] { border-left-color: #9b9e87; }
+  article.comment[data-comment-depth="2"] { border-left-color: #b58b78; }
+  article.comment[data-comment-depth="3"] { border-left-color: #8a91a0; }
+
+  .comment-itself {
+    padding: .8rem .2rem !important;
+    border: 0 !important;
+    border-bottom: 1px solid #e8e9e3 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .comment-itself:hover {
+    background: #f8f9f6 !important;
+  }
+
+  .comment-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .25rem .5rem;
+    padding: 0 0 .2rem !important;
+    border-bottom: 0 !important;
+    background: transparent;
+    font-size: .78rem !important;
+    line-height: 1.35;
+  }
+
+  .comment-header .link-user {
+    color: var(--ink) !important;
+    font-weight: 650;
+  }
+
+  .comment-time-info,
+  .comment-nav-link,
+  .comment-branch-counter,
+  .comment-excerpt {
+    color: var(--muted);
+    font-size: .74rem;
+  }
+
+  .comment-branch-counter {
+    padding: 0 .15rem !important;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--surface-muted);
+  }
+
+  .comment-excerpt {
+    flex-basis: 100%;
+    font-style: italic;
+    opacity: .8;
+  }
+
+  .btn-comment-collapse {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0;
+    margin-right: .15rem;
+    border: 0 !important;
+    border-radius: 2px;
+    background: transparent !important;
+  }
+
+  .btn-comment-collapse-label::after {
+    content: "−";
+    font-size: .85rem;
+    line-height: 1;
+  }
+
+  .is-comment-collapsed-individual:not(:target) .btn-comment-collapse-label::after,
+  .is-comment-collapsed:not(:target) .btn-comment-collapse-label::after {
+    content: "+";
+  }
+
+  .comment-text {
+    padding: .55rem 0 0;
+    margin-left: 1.35rem;
+    overflow-wrap: anywhere;
+  }
+
+  .comment-text a {
+    text-decoration: underline;
+    text-decoration-color: #c1cfc3;
+    text-decoration-thickness: 1px;
+  }
+
+  .comment-text a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .is-comment-exemplary > .comment-itself {
+    border-color: #9eb6a1;
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+
+  .label-comment-exemplary,
+  .comment-labels .label,
+  .comment-label-buttons button {
+    padding: .08rem .32rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    font-size: .68rem;
+  }
+
+  .is-comment-collapsed-individual:not(:target) > .comment-itself,
+  .is-comment-collapsed:not(:target) > .comment-itself {
+    background: #f8f7f1;
+    border-style: dashed;
+  }
+
+  .is-comment-collapsed-individual:not(:target) .comment-text,
+  .is-comment-collapsed:not(:target) .comment-text,
+  .is-comment-collapsed-individual:not(:target) .btn-post,
+  .is-comment-collapsed:not(:target) .btn-post {
+    display: none;
+  }
+
+  .is-topic-mine .link-user,
+  .is-comment-mine > .comment-itself > header > .link-user {
+    padding: .08rem .28rem;
+    color: var(--accent-hover) !important;
+    background: var(--own-comment);
+    border-radius: 2px;
+  }
+
+  /* ==========================================================
+     LABELS, FORMS AND UTILITY ELEMENTS
+     ========================================================== */
+
+  .link-group,
+  a.link-group,
+  .label-topic-tag,
+  .topic .label-topic-tag,
+  .topic-metadata .label,
+  .topic-info .label {
+    border-radius: 2px !important;
+    border: 1px solid #c6d4dc !important;
+    background: #e8f0f3 !important;
+    color: #263d4b !important;
+    box-shadow: none !important;
+    font-weight: 600 !important;
+  }
+
+  .topic .label-topic-tag-spoiler,
+  .label-topic-tag-spoiler {
+    background: #e9e7e2 !important;
+    color: #48443e !important;
+  }
+
+  .form-select,
+  .form-input,
+  input,
+  select,
+  textarea {
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    box-shadow: none;
+  }
+
+  .form-select,
+  .form-input,
+  input,
+  select {
+    min-height: 2rem;
+    padding: .28rem .5rem;
+  }
+
+  textarea {
+    padding: .55rem .65rem;
+  }
+
+  .form-select:hover,
+  .form-input:hover,
+  input:hover,
+  select:hover,
+  textarea:hover {
+    border-color: #8c978a;
+  }
+
+  .btn,
+  .btn-post-action,
+  .btn-comment-label {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink-soft);
+    box-shadow: none;
+    transition: background .12s ease, border-color .12s ease, color .12s ease;
+  }
+
+  .btn { padding: .32rem .62rem; }
+
+  .btn:hover,
+  .btn-post-action:hover {
+    color: var(--accent-hover);
+    border-color: #89998a;
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
+
+  .btn.btn-primary,
+  .btn-post-action-used {
+    color: #fff !important;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .btn.btn-primary:hover,
+  .btn-post-action-used:hover {
+    background: var(--accent-hover);
+  }
+
+  .btn-sm {
+    font-size: .8rem;
+    padding: .2rem .45rem;
+  }
+
+  .dropdown .menu {
+    min-width: 9rem;
+    padding: .25rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: 0 8px 24px rgba(36,41,35,.12);
+  }
+
+  .dropdown .menu li { margin: .08rem 0; }
+
+  .dropdown .menu .btn-post-action {
+    width: 100%;
+    text-align: left;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .dropdown .menu .btn-post-action:hover {
+    background: var(--surface-muted);
+    border-color: var(--line);
+  }
+
+  form#new-topic {
+    width: min(100%, 920px);
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  form#new-topic .toast,
+  form#new-topic .toast-minor,
+  .alert {
+    box-sizing: border-box;
+    padding: .7rem .8rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--surface-muted);
+    box-shadow: none;
+    color: var(--ink-soft);
+  }
+
+  form#new-topic .toast h2 {
+    margin: 0 0 .4rem;
+    font-size: .95rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    background: var(--surface);
+  }
+
+  th, td {
+    padding: .4rem .55rem;
+    border: 1px solid var(--line);
+  }
+
+  th {
+    color: var(--ink);
+    background: var(--surface-muted);
+    font-family: var(--font-heading);
+    font-weight: 650;
+    text-align: left;
+  }
+
+  pre {
+    overflow: auto;
+    padding: .8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #f0efe8;
+    line-height: 1.5;
+  }
+
+  blockquote {
+    margin-left: .15rem;
+    padding: .2rem .85rem;
+    border-left: 3px solid #a6b8a8;
+    color: var(--ink-soft);
+    background: #f7f6f0;
+  }
+
+  hr,
+  .divider {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 1.25rem 0;
+  }
+
+  mark,
+  .highlight {
+    padding: 0 .12em;
+    color: var(--ink);
+    background: var(--warning);
+  }
+
+  .post-action-settings { font-size: .8rem; }
+
+  /* ==========================================================
+     GROUP DIRECTORY
+     ========================================================== */
+
+  .group-list { margin: 1rem 0; }
+
+  if columns {
+    .group-list {
+      column-width: 18em;
+      column-gap: 1.5rem;
+    }
+  }
+
+  .group-list li {
+    text-indent: 0;
+    break-inside: avoid;
+    margin-bottom: .25rem;
+  }
+
+  .group-list-item-not-subscribed:after {
+    content: " · not subscribed";
+    color: var(--muted);
+    font-size: .72rem;
+  }
+
+  .group-list-item-not-subscribed a.link-group {
+    background: transparent;
+    border-style: dashed;
+  }
+
+  /* ==========================================================
+     RESPONSIVE AND ACCESSIBILITY OVERRIDES
+     ========================================================== */
+
+  @media (min-width: 761px) and (max-width: 1199px) {
+    .listing-options {
+      position: static !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      height: auto !important;
+      margin: .1rem 0 1rem !important;
+      padding: 0 0 .55rem !important;
+      border-bottom: 1px solid var(--line) !important;
+      white-space: normal !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    body > main {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      padding: .8rem .7rem 2rem !important;
+    }
+
+    #site-header {
+      position: sticky;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding: .45rem .7rem !important;
+    }
+
+    #site-header .site-header-sidebar-button {
+      display: inline-block !important;
+    }
+
+    .listing-options {
+      gap: .35rem .6rem;
+    }
+
+    ol.topic-listing {
+      column-count: 1 !important;
+      column-width: auto !important;
+      column-rule: 0 !important;
+    }
+
+    article.topic-full { padding: .8rem; }
+
+    .comment-tree-replies {
+      margin-left: .35rem;
+      padding-left: .4rem;
+    }
+
+    .comment-text { margin-left: .25rem; }
+
+    if commentColumns {
+      .topic-comments .comment-text {
+        column-count: 1;
+        column-rule: 0;
+      }
+    }
+  }
+
+  @media (max-width: 560px) {
+    :root { --header-height: auto; }
+
+    body > main { padding: .6rem .45rem 1.5rem !important; }
+
+    .listing-options { align-items: flex-start; }
+    .tab.tab-listing-order { gap: 0; }
+    .tab .tab-item a { padding: .3rem .38rem; }
+
+    article.topic {
+      padding-right: .45rem;
+      padding-left: .55rem;
+    }
+
+    .topic-title,
+    h1.topic-title {
+      font-size: .98rem;
+      margin-right: 1.9rem;
+    }
+
+    .topic-metadata,
+    .topic-info {
+      gap: .2rem .4rem;
+      font-size: .7rem;
+    }
+
+    article.topic > .topic-voting {
+      right: .35rem;
+      top: .42rem;
+    }
+
+    .topic-full-text,
+    .topic-full-text p,
+    .comment-text p {
+      font-size: .93rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: .001ms !important;
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+
+
+  /* ==========================================================
+     VOTE BUTTON STATES — KEEP VOTED COLOUR
+     ========================================================== */
+
+  article.topic > button.topic-voting:not(.btn-used):not([aria-pressed="true"]),
+  article.topic-full > button.topic-voting:not(.btn-used):not([aria-pressed="true"]) {
+    color: var(--accent) !important;
+    background: var(--surface) !important;
+    border-color: var(--line-strong) !important;
+  }
+
+  article.topic > button.topic-voting.btn-used,
+  article.topic > button.topic-voting[aria-pressed="true"],
+  article.topic-full > button.topic-voting.btn-used,
+  article.topic-full > button.topic-voting[aria-pressed="true"] {
+    color: #fff !important;
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+  }
+
+  article.topic > button.topic-voting.btn-used::before,
+  article.topic > button.topic-voting[aria-pressed="true"]::before,
+  article.topic-full > button.topic-voting.btn-used::before,
+  article.topic-full > button.topic-voting[aria-pressed="true"]::before {
+    color: #fff !important;
+  }
+
+  article.topic > button.topic-voting:hover,
+  article.topic-full > button.topic-voting:hover {
+    background: var(--accent-soft) !important;
+    border-color: var(--accent) !important;
+  }
+
+  article.topic > button.topic-voting.btn-used:hover,
+  article.topic > button.topic-voting[aria-pressed="true"]:hover,
+  article.topic-full > button.topic-voting.btn-used:hover,
+  article.topic-full > button.topic-voting[aria-pressed="true"]:hover {
+    background: var(--accent-hover) !important;
+  }
+
+  /* ==========================================================
+     FIXED DESKTOP HEADER — KEEP ALL RELOCATED LINKS VISIBLE
+     ========================================================== */
+
+  @media (min-width: 1200px) {
+    #site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      min-height: 52px !important;
+      height: 52px !important;
+      z-index: 1000 !important;
+    }
+
+    /* The existing .listing-options stays at z-index 1001:
+       above the header background, between logo and username. */
+    #site-header .site-header-logo,
+    #site-header .logged-in-user-info {
+      position: relative !important;
+      z-index: 1002 !important;
+    }
+
+    #site-header .logged-in-user-info {
+      margin-right: 36px !important;
+    }
+
+    body > main {
+      padding-top: 64px !important;
+    }
+  }
+
+  /* Sidebar appearance remains in the stylesheet. Its sliding overlay
+     positioning is controlled by the separate sidebar userscript. */
 
 }
